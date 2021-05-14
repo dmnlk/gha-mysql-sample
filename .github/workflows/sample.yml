@@ -11,7 +11,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - uses: dmnlk/ecspresso@v0
+      - uses: dmnlk/ecspresso@v1.1
         with:
           version: letest
       - name: Run a one-line script
