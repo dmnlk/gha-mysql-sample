@@ -6,7 +6,8 @@ on:
     branches: [ main ]
   workflow_dispatch:
     inputs:
-     version:
+      version:
+       required: false
        description: "A version to install ecspresso"
        default: "v1.3.2"
 
