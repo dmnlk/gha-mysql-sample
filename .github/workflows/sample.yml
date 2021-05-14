@@ -15,11 +15,13 @@ jobs:
       - run: |
           if [ ${{ github.event.inputs.version }} = "latest" ]; then
             FILENAME=$(curl -sS https://api.github.com/repos/kayac/ecspresso/releases/latest|jq -r '.assets[].name|select(test("linux-amd64.zip"))')
+            DOWNLOAD_URL=https://github.com/kayac/ecspresso/releases/latest/download/${FILENAME}
           else
             FILENAME=ecspresso-${{ github.event.inputs.version }}-linux-amd64.zip
+            DOWNLOAD_URL=https://github.com/kayac/ecspresso/releases/download/${{ github.event.inputs.version }}/${FILENAME}
           fi
           cd /tmp
-          curl -sLO https://github.com/kayac/ecspresso/releases/download/${{ github.event.inputs.version }}/${FILENAME}
+          curl -sLO DOWNLOAD_URL
           unzip ${FILENAME}
           sudo install ${FILENAME} /usr/local/bin/ecspresso
           rm -f ${FILENAME} ${FILENAME}.zip
