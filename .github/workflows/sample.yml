@@ -23,3 +23,4 @@ jobs:
           unzip ${FILENAME}.zip
           sudo install ${FILENAME} /usr/local/bin/ecspresso
           rm -f ${FILENAME} ${FILENAME}.zip
+          /usr/local/bin/ecspresso version
