@@ -9,21 +9,11 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-    services:
-      mysql:
-        image: mysql:5.6
-        options: --health-cmd "mysqladmin ping -h localhost" --health-interval 20s --health-timeout 10s --health-retries 10
-        ports:
-          - 3306:3306
-        env:
-          MYSQL_ROOT_PASSWORD: root
-          MYSQL_DATABASE: hoge
-          MYSQL_USER: user
-          MYSQL_PASSWORD: pass
     steps:
-      - name: connect mysql
-        run: mysql -h 127.0.0.1 --port 3306 -u user -ppass -D hoge -e 'show tables;'
       - uses: actions/checkout@v2
+      - uses: dmnlk/ecspresso@v0
+        with:
+          version: v1.5.3
       - name: Run a one-line script
         run: echo Hello, world!
       - name: Run a multi-line script
