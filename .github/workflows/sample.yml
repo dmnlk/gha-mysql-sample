@@ -21,7 +21,7 @@ jobs:
             DOWNLOAD_URL=https://github.com/kayac/ecspresso/releases/download/${{ github.event.inputs.version }}/${FILENAME}
           fi
           cd /tmp
-          curl -sLO DOWNLOAD_URL
+          curl -sLO ${DOWNLOAD_URL}
           unzip ${FILENAME}
           sudo install ${FILENAME} /usr/local/bin/ecspresso
           rm -f ${FILENAME} ${FILENAME}.zip
