@@ -1,0 +1,18 @@
+{
+  "pkgFiles": [
+    "package.json"
+  ],
+  "requireUpstream": false,
+  "requireCleanWorkingDir": false,
+  "github": {
+    "release": true
+  },
+  "git": {
+    "commitMessage": "Release v${version} [skip ci]",
+    "requireUpstream": false,
+    "requireCleanWorkingDir": false
+  },
+  "npm": {
+    "publish": false
+  }
+}
