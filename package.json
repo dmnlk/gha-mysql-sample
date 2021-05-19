@@ -15,5 +15,5 @@
     "release-minor:commit": "release-it minor -n",
     "release-major": "release-it major --dry-run -n",
     "release-major:commit": "release-it major -n"
-  },
+  }
 }
