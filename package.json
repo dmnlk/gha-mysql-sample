@@ -8,5 +8,12 @@
   "license": "MIT",
   "dependencies": {
     "release-it": "^14.6.2"
-  }
+  },
+  "scripts": {
+    "release-patch:commit": "release-it patch -n",
+    "release-minor": "release-it minor --dry-run -n",
+    "release-minor:commit": "release-it minor -n",
+    "release-major": "release-it major --dry-run -n",
+    "release-major:commit": "release-it major -n"
+  },
 }
