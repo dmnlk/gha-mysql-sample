@@ -1,0 +1,9 @@
+{
+  "name": "sample",
+  "version": "1.0.0",
+  "description": "hogehoge",
+  "main": "index.js",
+  "repository": "ssh://git@github.com/dmnlk/gha-mysql-sample.git",
+  "author": "dmnlk",
+  "license": "MIT"
+}
