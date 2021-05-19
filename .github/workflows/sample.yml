@@ -1,28 +1,9 @@
 name: CI
 on:
-  workflow_dispatch:
-    inputs:
-      version:
-       required: false
-       description: "A version to install ecspresso"
-       default: "v1.3.2"
+  push:
 
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - run: echo ${{ github.event.inputs.version }}
-      - run: |
-          if [ ${{ github.event.inputs.version }} = "latest" ]; then
-            FILENAME=$(curl -sS https://api.github.com/repos/kayac/ecspresso/releases/latest|jq -r '.assets[].name|select(test("linux-amd64$"))')
-            DOWNLOAD_URL=https://github.com/kayac/ecspresso/releases/latest/download/${FILENAME}.zip
-          else
-            FILENAME=ecspresso-${{ github.event.inputs.version }}-linux-amd64
-            DOWNLOAD_URL=https://github.com/kayac/ecspresso/releases/download/${{ github.event.inputs.version }}/${FILENAME}.zip
-          fi
-          cd /tmp
-          curl -sLO ${DOWNLOAD_URL}
-          unzip ${FILENAME}
-          sudo install ${FILENAME} /usr/local/bin/ecspresso
-          rm -f ${FILENAME} ${FILENAME}.zip
-          /usr/local/bin/ecspresso version
+      - uses: actions/checkout@v2
